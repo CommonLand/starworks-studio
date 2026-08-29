@@ -176,8 +176,7 @@ function Home() {
             {slide.overlay.map((line) => (
               <span
                 key={line}
-                className="block text-[clamp(1rem,2vw,1.65rem)] font-semibold uppercase leading-[1.35] tracking-[0.06em] text-background/95 mix-blend-normal"
-                style={{ color: "oklch(0.14 0 0)" }}
+                className="block text-[clamp(1rem,2vw,1.65rem)] font-semibold uppercase leading-[1.35] tracking-[0.06em] text-background"
               >
                 {line}
               </span>
@@ -219,9 +218,7 @@ function Home() {
               </h2>
               {featured.subtitle && (
                 <span
-                  className="mt-2 text-sm uppercase tracking-[0.22em]"
-                  style={{ color: "var(--highlight)" }}
-                >
+                  className="mt-2 text-sm uppercase tracking-[0.22em] text-highlight">
                   {featured.subtitle}
                 </span>
               )}
