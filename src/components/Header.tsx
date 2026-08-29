@@ -16,7 +16,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 hair-b bg-background/95 backdrop-blur">
-      <div className="flex h-[76px] items-center justify-between px-6 lg:px-10">
+      <div className="flex h-[88px] items-center justify-between px-6 lg:px-9">
         <Link
           to="/"
           className="display text-[1.35rem] tracking-[0.34em] leading-none text-foreground"
