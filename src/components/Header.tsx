@@ -19,7 +19,7 @@ export function Header() {
       <div className="flex h-[88px] items-center justify-between px-6 lg:px-9">
         <Link
           to="/"
-          className="display text-[1.35rem] tracking-[0.34em] leading-none text-foreground"
+          className="text-[1.25rem] font-semibold uppercase tracking-[0.3em] leading-none text-foreground"
         >
           Starworks
         </Link>
