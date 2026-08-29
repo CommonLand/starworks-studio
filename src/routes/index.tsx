@@ -217,7 +217,7 @@ function Home() {
           <Link
             to="/films/$slug"
             params={{ slug: featured.slug }}
-            className="group relative mt-6 block aspect-[16/7] overflow-hidden border border-hairline"
+            className="group relative mt-6 block aspect-[16/5] overflow-hidden border border-hairline"
           >
             <img
               src={featured.image}
