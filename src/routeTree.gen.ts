@@ -12,11 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CreatorsRouteImport } from './routes/creators'
-import { Route as EventsRouteImport } from './routes/events'
-import { Route as FilmsRouteImport } from './routes/films'
-import { Route as NewsRouteImport } from './routes/news'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as EventsSlugRouteImport } from './routes/events.$slug'
+import { Route as FilmsIndexRouteImport } from './routes/films.index'
 import { Route as FilmsSlugRouteImport } from './routes/films.$slug'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -34,70 +34,70 @@ const CreatorsRoute = CreatorsRouteImport.update({
   path: '/creators',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FilmsRoute = FilmsRouteImport.update({
-  id: '/films',
-  path: '/films',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewsRoute = NewsRouteImport.update({
-  id: '/news',
-  path: '/news',
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsSlugRoute = EventsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => EventsRoute,
+  id: '/events/$slug',
+  path: '/events/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmsIndexRoute = FilmsIndexRouteImport.update({
+  id: '/films/',
+  path: '/films/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const FilmsSlugRoute = FilmsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => FilmsRoute,
+  id: '/films/$slug',
+  path: '/films/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const NewsSlugRoute = NewsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => NewsRoute,
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/creators': typeof CreatorsRoute
-  '/events': typeof EventsRouteWithChildren
-  '/films': typeof FilmsRouteWithChildren
-  '/news': typeof NewsRouteWithChildren
   '/events/$slug': typeof EventsSlugRoute
   '/films/$slug': typeof FilmsSlugRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/events/': typeof EventsIndexRoute
+  '/films/': typeof FilmsIndexRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/creators': typeof CreatorsRoute
-  '/events': typeof EventsRouteWithChildren
-  '/films': typeof FilmsRouteWithChildren
-  '/news': typeof NewsRouteWithChildren
   '/events/$slug': typeof EventsSlugRoute
   '/films/$slug': typeof FilmsSlugRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/events': typeof EventsIndexRoute
+  '/films': typeof FilmsIndexRoute
+  '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/creators': typeof CreatorsRoute
-  '/events': typeof EventsRouteWithChildren
-  '/films': typeof FilmsRouteWithChildren
-  '/news': typeof NewsRouteWithChildren
   '/events/$slug': typeof EventsSlugRoute
   '/films/$slug': typeof FilmsSlugRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/events/': typeof EventsIndexRoute
+  '/films/': typeof FilmsIndexRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,43 +105,46 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/creators'
-    | '/events'
-    | '/films'
-    | '/news'
     | '/events/$slug'
     | '/films/$slug'
     | '/news/$slug'
+    | '/events/'
+    | '/films/'
+    | '/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/creators'
-    | '/events'
-    | '/films'
-    | '/news'
     | '/events/$slug'
     | '/films/$slug'
     | '/news/$slug'
+    | '/events'
+    | '/films'
+    | '/news'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/creators'
-    | '/events'
-    | '/films'
-    | '/news'
     | '/events/$slug'
     | '/films/$slug'
     | '/news/$slug'
+    | '/events/'
+    | '/films/'
+    | '/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CreatorsRoute: typeof CreatorsRoute
-  EventsRoute: typeof EventsRouteWithChildren
-  FilmsRoute: typeof FilmsRouteWithChildren
-  NewsRoute: typeof NewsRouteWithChildren
+  EventsSlugRoute: typeof EventsSlugRoute
+  FilmsSlugRoute: typeof FilmsSlugRoute
+  NewsSlugRoute: typeof NewsSlugRoute
+  EventsIndexRoute: typeof EventsIndexRoute
+  FilmsIndexRoute: typeof FilmsIndexRoute
+  NewsIndexRoute: typeof NewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -167,89 +170,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreatorsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events': {
-      id: '/events'
+    '/events/': {
+      id: '/events/'
       path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/films': {
-      id: '/films'
-      path: '/films'
-      fullPath: '/films'
-      preLoaderRoute: typeof FilmsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/news': {
-      id: '/news'
-      path: '/news'
-      fullPath: '/news'
-      preLoaderRoute: typeof NewsRouteImport
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events/$slug': {
       id: '/events/$slug'
-      path: '/$slug'
+      path: '/events/$slug'
       fullPath: '/events/$slug'
       preLoaderRoute: typeof EventsSlugRouteImport
-      parentRoute: typeof EventsRoute
+      parentRoute: typeof rootRouteImport
+    }
+    '/films/': {
+      id: '/films/'
+      path: '/films'
+      fullPath: '/films/'
+      preLoaderRoute: typeof FilmsIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/films/$slug': {
       id: '/films/$slug'
-      path: '/$slug'
+      path: '/films/$slug'
       fullPath: '/films/$slug'
       preLoaderRoute: typeof FilmsSlugRouteImport
-      parentRoute: typeof FilmsRoute
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/news/$slug': {
       id: '/news/$slug'
-      path: '/$slug'
+      path: '/news/$slug'
       fullPath: '/news/$slug'
       preLoaderRoute: typeof NewsSlugRouteImport
-      parentRoute: typeof NewsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface EventsRouteChildren {
-  EventsSlugRoute: typeof EventsSlugRoute
-}
-
-const EventsRouteChildren: EventsRouteChildren = {
-  EventsSlugRoute: EventsSlugRoute,
-}
-
-const EventsRouteWithChildren =
-  EventsRoute._addFileChildren(EventsRouteChildren)
-
-interface FilmsRouteChildren {
-  FilmsSlugRoute: typeof FilmsSlugRoute
-}
-
-const FilmsRouteChildren: FilmsRouteChildren = {
-  FilmsSlugRoute: FilmsSlugRoute,
-}
-
-const FilmsRouteWithChildren = FilmsRoute._addFileChildren(FilmsRouteChildren)
-
-interface NewsRouteChildren {
-  NewsSlugRoute: typeof NewsSlugRoute
-}
-
-const NewsRouteChildren: NewsRouteChildren = {
-  NewsSlugRoute: NewsSlugRoute,
-}
-
-const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CreatorsRoute: CreatorsRoute,
-  EventsRoute: EventsRouteWithChildren,
-  FilmsRoute: FilmsRouteWithChildren,
-  NewsRoute: NewsRouteWithChildren,
+  EventsSlugRoute: EventsSlugRoute,
+  FilmsSlugRoute: FilmsSlugRoute,
+  NewsSlugRoute: NewsSlugRoute,
+  EventsIndexRoute: EventsIndexRoute,
+  FilmsIndexRoute: FilmsIndexRoute,
+  NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
