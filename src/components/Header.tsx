@@ -16,20 +16,20 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 hair-b bg-background/95 backdrop-blur">
-      <div className="flex h-[76px] items-center justify-between px-6 lg:px-10">
+      <div className="flex h-[88px] items-center justify-between px-6 lg:px-9">
         <Link
           to="/"
-          className="display text-[1.35rem] tracking-[0.34em] leading-none text-foreground"
+          className="text-[1.25rem] font-semibold uppercase tracking-[0.3em] leading-none text-foreground"
         >
           Starworks
         </Link>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="label text-foreground/85 transition-colors hover:text-foreground"
+              className="text-[11.5px] font-medium uppercase tracking-[0.2em] text-foreground/85 transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground" }}
             >
               {item.label}
@@ -37,17 +37,17 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             to="/portal/login"
-            className="label inline-flex items-center gap-3 border border-border px-5 py-3.5 text-foreground/90 transition-colors hover:border-foreground hover:text-foreground"
+            className="inline-flex items-center gap-3 border border-border px-4 py-2.5 text-[10.5px] font-medium uppercase tracking-[0.18em] text-foreground/90 transition-colors hover:border-foreground hover:text-foreground"
           >
             Creator Portal
-            <Lock className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <Lock className="h-3 w-3" strokeWidth={1.5} />
           </Link>
           <Link
             to="/join"
-            className="group label inline-flex items-center gap-4 bg-foreground px-5 py-3.5 text-background"
+            className="group inline-flex items-center gap-3 bg-foreground px-4 py-2.5 text-[10.5px] font-medium uppercase tracking-[0.18em] text-background"
           >
             Join Starworks
             <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />
