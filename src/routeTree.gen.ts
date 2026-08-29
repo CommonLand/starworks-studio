@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CreatorsRouteImport } from './routes/creators'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as EventsSlugRouteImport } from './routes/events.$slug'
+import { Route as FilmsIndexRouteImport } from './routes/films.index'
+import { Route as FilmsSlugRouteImport } from './routes/films.$slug'
+import { Route as JoinIndexRouteImport } from './routes/join.index'
+import { Route as JoinSlugRouteImport } from './routes/join.$slug'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as PortalIndexRouteImport } from './routes/portal.index'
+import { Route as PortalForgotPasswordRouteImport } from './routes/portal.forgot-password'
+import { Route as PortalLoginRouteImport } from './routes/portal.login'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatorsRoute = CreatorsRouteImport.update({
+  id: '/creators',
+  path: '/creators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsSlugRoute = EventsSlugRouteImport.update({
+  id: '/events/$slug',
+  path: '/events/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmsIndexRoute = FilmsIndexRouteImport.update({
+  id: '/films/',
+  path: '/films/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmsSlugRoute = FilmsSlugRouteImport.update({
+  id: '/films/$slug',
+  path: '/films/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JoinIndexRoute = JoinIndexRouteImport.update({
+  id: '/join/',
+  path: '/join/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JoinSlugRoute = JoinSlugRouteImport.update({
+  id: '/join/$slug',
+  path: '/join/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalIndexRoute = PortalIndexRouteImport.update({
+  id: '/portal/',
+  path: '/portal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalForgotPasswordRoute = PortalForgotPasswordRouteImport.update({
+  id: '/portal/forgot-password',
+  path: '/portal/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalLoginRoute = PortalLoginRouteImport.update({
+  id: '/portal/login',
+  path: '/portal/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/creators': typeof CreatorsRoute
+  '/events/$slug': typeof EventsSlugRoute
+  '/films/$slug': typeof FilmsSlugRoute
+  '/join/$slug': typeof JoinSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/portal/forgot-password': typeof PortalForgotPasswordRoute
+  '/portal/login': typeof PortalLoginRoute
+  '/events/': typeof EventsIndexRoute
+  '/films/': typeof FilmsIndexRoute
+  '/join/': typeof JoinIndexRoute
+  '/news/': typeof NewsIndexRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/creators': typeof CreatorsRoute
+  '/events/$slug': typeof EventsSlugRoute
+  '/films/$slug': typeof FilmsSlugRoute
+  '/join/$slug': typeof JoinSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/portal/forgot-password': typeof PortalForgotPasswordRoute
+  '/portal/login': typeof PortalLoginRoute
+  '/events': typeof EventsIndexRoute
+  '/films': typeof FilmsIndexRoute
+  '/join': typeof JoinIndexRoute
+  '/news': typeof NewsIndexRoute
+  '/portal': typeof PortalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/creators': typeof CreatorsRoute
+  '/events/$slug': typeof EventsSlugRoute
+  '/films/$slug': typeof FilmsSlugRoute
+  '/join/$slug': typeof JoinSlugRoute
+  '/news/$slug': typeof NewsSlugRoute
+  '/portal/forgot-password': typeof PortalForgotPasswordRoute
+  '/portal/login': typeof PortalLoginRoute
+  '/events/': typeof EventsIndexRoute
+  '/films/': typeof FilmsIndexRoute
+  '/join/': typeof JoinIndexRoute
+  '/news/': typeof NewsIndexRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/creators'
+    | '/events/$slug'
+    | '/films/$slug'
+    | '/join/$slug'
+    | '/news/$slug'
+    | '/portal/forgot-password'
+    | '/portal/login'
+    | '/events/'
+    | '/films/'
+    | '/join/'
+    | '/news/'
+    | '/portal/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/creators'
+    | '/events/$slug'
+    | '/films/$slug'
+    | '/join/$slug'
+    | '/news/$slug'
+    | '/portal/forgot-password'
+    | '/portal/login'
+    | '/events'
+    | '/films'
+    | '/join'
+    | '/news'
+    | '/portal'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/creators'
+    | '/events/$slug'
+    | '/films/$slug'
+    | '/join/$slug'
+    | '/news/$slug'
+    | '/portal/forgot-password'
+    | '/portal/login'
+    | '/events/'
+    | '/films/'
+    | '/join/'
+    | '/news/'
+    | '/portal/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CreatorsRoute: typeof CreatorsRoute
+  EventsSlugRoute: typeof EventsSlugRoute
+  FilmsSlugRoute: typeof FilmsSlugRoute
+  JoinSlugRoute: typeof JoinSlugRoute
+  NewsSlugRoute: typeof NewsSlugRoute
+  PortalForgotPasswordRoute: typeof PortalForgotPasswordRoute
+  PortalLoginRoute: typeof PortalLoginRoute
+  EventsIndexRoute: typeof EventsIndexRoute
+  FilmsIndexRoute: typeof FilmsIndexRoute
+  JoinIndexRoute: typeof JoinIndexRoute
+  NewsIndexRoute: typeof NewsIndexRoute
+  PortalIndexRoute: typeof PortalIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,115 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creators': {
+      id: '/creators'
+      path: '/creators'
+      fullPath: '/creators'
+      preLoaderRoute: typeof CreatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/': {
+      id: '/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/$slug': {
+      id: '/events/$slug'
+      path: '/events/$slug'
+      fullPath: '/events/$slug'
+      preLoaderRoute: typeof EventsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/films/': {
+      id: '/films/'
+      path: '/films'
+      fullPath: '/films/'
+      preLoaderRoute: typeof FilmsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/films/$slug': {
+      id: '/films/$slug'
+      path: '/films/$slug'
+      fullPath: '/films/$slug'
+      preLoaderRoute: typeof FilmsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/join/': {
+      id: '/join/'
+      path: '/join'
+      fullPath: '/join/'
+      preLoaderRoute: typeof JoinIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/join/$slug': {
+      id: '/join/$slug'
+      path: '/join/$slug'
+      fullPath: '/join/$slug'
+      preLoaderRoute: typeof JoinSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/': {
+      id: '/portal/'
+      path: '/portal'
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/forgot-password': {
+      id: '/portal/forgot-password'
+      path: '/portal/forgot-password'
+      fullPath: '/portal/forgot-password'
+      preLoaderRoute: typeof PortalForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/login': {
+      id: '/portal/login'
+      path: '/portal/login'
+      fullPath: '/portal/login'
+      preLoaderRoute: typeof PortalLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CreatorsRoute: CreatorsRoute,
+  EventsSlugRoute: EventsSlugRoute,
+  FilmsSlugRoute: FilmsSlugRoute,
+  JoinSlugRoute: JoinSlugRoute,
+  NewsSlugRoute: NewsSlugRoute,
+  PortalForgotPasswordRoute: PortalForgotPasswordRoute,
+  PortalLoginRoute: PortalLoginRoute,
+  EventsIndexRoute: EventsIndexRoute,
+  FilmsIndexRoute: FilmsIndexRoute,
+  JoinIndexRoute: JoinIndexRoute,
+  NewsIndexRoute: NewsIndexRoute,
+  PortalIndexRoute: PortalIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
