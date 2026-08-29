@@ -149,7 +149,7 @@ function FilmDetail() {
         open={open}
         onClose={() => setOpen(false)}
         title={`${film.title} — Trailer`}
-        src={film.trailerUrl || undefined}
+        {...(film.trailerUrl ? { src: film.trailerUrl } : {})}
       />
     </>
   );

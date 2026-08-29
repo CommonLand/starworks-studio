@@ -85,8 +85,8 @@ const slides: Slide[] = [
 function Home() {
   const [active, setActive] = useState(0);
   const [reelOpen, setReelOpen] = useState(false);
-  const slide = slides[active];
-  const featured = films[0];
+  const slide = slides[active] ?? slides[0]!;
+  const featured = films[0]!;
 
   return (
     <>
