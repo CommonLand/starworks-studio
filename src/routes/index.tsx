@@ -91,7 +91,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="hair-b grid grid-cols-1 lg:h-[calc(100vh-76px)] lg:min-h-[560px] lg:grid-cols-[118px_1fr_56%]">
+      <section className="hair-b grid grid-cols-1 lg:h-[calc(100vh-76px)] lg:min-h-[560px] lg:grid-cols-[118px_1fr_54%]">
         {/* Section indicator rail */}
         <div className="hidden flex-col justify-between py-12 pl-6 hair-r lg:flex">
           <div className="flex flex-col gap-[2.4rem]">
@@ -130,9 +130,9 @@ function Home() {
 
         {/* Headline column */}
         <div className="flex flex-col justify-center px-6 py-16 lg:px-12 lg:py-0">
-          <h1 key={slide.id} className="display reveal text-[clamp(2.4rem,4.4vw,4.3rem)]">
+          <h1 key={slide.id} className="display reveal text-[clamp(2.2rem,3.85vw,3.6rem)]">
             {slide.headline.map((line) => (
-              <span key={line} className="block">
+              <span key={line} className="block lg:whitespace-nowrap">
                 {line}
               </span>
             ))}
