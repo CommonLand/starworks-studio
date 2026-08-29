@@ -91,10 +91,10 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="hair-b grid grid-cols-1 lg:h-[calc(100vh-76px)] lg:min-h-[560px] lg:grid-cols-[118px_1fr_57%]">
+      <section className="hair-b grid grid-cols-1 lg:h-[calc(100vh-76px)] lg:min-h-[560px] lg:grid-cols-[118px_1fr_56%]">
         {/* Section indicator rail */}
         <div className="hidden flex-col justify-between py-12 pl-6 hair-r lg:flex">
-          <div className="flex flex-col gap-[1.35rem]">
+          <div className="flex flex-col gap-[2.4rem]">
             {slides.map((s, i) => (
               <button
                 key={s.id}
@@ -130,7 +130,7 @@ function Home() {
 
         {/* Headline column */}
         <div className="flex flex-col justify-center px-6 py-16 lg:px-12 lg:py-0">
-          <h1 key={slide.id} className="display reveal text-[clamp(2.7rem,7.2vw,5.4rem)]">
+          <h1 key={slide.id} className="display reveal text-[clamp(2.4rem,4.4vw,4.3rem)]">
             {slide.headline.map((line) => (
               <span key={line} className="block">
                 {line}
