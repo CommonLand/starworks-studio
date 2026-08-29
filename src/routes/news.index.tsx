@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Arrow } from "@/components/ArrowLink";
 import { articles } from "@/content/news";
 
-export const Route = createFileRoute("/news")({
+export const Route = createFileRoute("/news/")({
   head: () => ({
     meta: [
       { title: "News — StarWorks" },

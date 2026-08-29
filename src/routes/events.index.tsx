@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Arrow } from "@/components/ArrowLink";
 import { pastEvents, upcomingEvents, type SWEvent } from "@/content/events";
 
-export const Route = createFileRoute("/events")({
+export const Route = createFileRoute("/events/")({
   head: () => ({
     meta: [
       { title: "Events — StarWorks" },
